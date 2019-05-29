@@ -9,19 +9,19 @@ More details are provided in the referenced papers.
 
 GLIMPSE Transmitted Data Structure
 
-# ComplexEventRule:
+#ComplexEventRule:
 The XSD of the ObjectMessage sent by the GlimpseConsumer to request an evaluation.
 
-# GlimpseBaseEvent<?>:
+#GlimpseBaseEvent<?>:
 The object sent into the data field of the ObjectMessage sent by the GlimpseProbe to Glimpse
 
-# ComplexEventException:
+#ComplexEventException:
 The XSD of the ObjectMessage sent by GlimpseManager to notify to the GlimpseConsumer an exception occurred into the SUT.
 
-# ComplexEventResponse:
+#ComplexEventResponse:
 The XSD of the ObjectMessage sent by GlimpseManager to notify an occurrence of the requested pattern to the GlimpseConsumer.
 
-# GLIMPSE requirements
+#Requirements
 
     ServiceMix4: http://servicemix.apache.org/SMX4/download.html
     A client able to send and receive JMS messages

@@ -4,8 +4,6 @@ The prototype version of one of the Connect Architecture Enabler: Monitoring
 The deployment and the execution of applications on dynamic runtime infrastructures introduces new requirements of adaptability with respect to monitoring. Specifically, the governance of services relies on the observation and analysis of events happening at different abstraction layers. Adaptability requirements are even more evident when monitoring deals with Service Level Agreements (SLA) or KPI (Key Performance Indicator).
 The proposed monitoring infrastructure keeps track of the continuous evolution of the underlying environment, and adapt itself accordingly.
 The multi-source monitoring architecture developed by SEDC Laboratory that can synthesize on-the-fly SLA/KPI monitoring rules following the evolution of the infrastructure.
-Here below, a brief description of the main monitoring components as show in Figure 1.
-More details are provided in the referenced papers.
 
 GLIMPSE Transmitted Data Structure
 

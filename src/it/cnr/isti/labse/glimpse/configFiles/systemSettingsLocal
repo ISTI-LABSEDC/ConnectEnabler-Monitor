@@ -1,0 +1,3 @@
+ENVIRONMENTPARAMETERSFILE = ./configFiles/environmentFileLocal
+DROOLSPARAMETERFILE = 		./configFiles/droolsFile
+MANAGERPARAMETERFILE = 		./configFiles/managerFile

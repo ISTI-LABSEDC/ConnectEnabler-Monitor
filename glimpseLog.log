@@ -1,0 +1,1221 @@
+Tue Dec 18 16:18:17 CET 2012 - MainMonitoring: Setting up TopicConnectionFactory		[ OK ]
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:18:17 CET 2012 - ComplexEventProcessorImpl: Creating connection object 		[ OK ]
+Tue Dec 18 16:18:17 CET 2012 - ComplexEventProcessorImpl: Creating public session object 	[ OK ]
+Tue Dec 18 16:18:17 CET 2012 - ComplexEventProcessorImpl: Creating subscribe object 		[ OK ]
+Tue Dec 18 16:18:17 CET 2012 - ComplexEventProcessorImpl: Setting up reading topic 		[ OK ]
+Tue Dec 18 16:18:17 CET 2012 - ComplexEventProcessorImpl: Setting up destination topic 		[ OK ]
+Tue Dec 18 16:18:17 CET 2012 - ComplexEventProcessorImpl: Reading knowledge base 		[ OK ]
+Tue Dec 18 16:18:18 CET 2012 - ComplexEventProcessorImpl: Starting connection 			[ OK ]
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:18:21 CET 2012 - GlimpseManager: Creating connection object 			[ OK ]
+Tue Dec 18 16:18:21 CET 2012 - GlimpseManager: Creating public session object 			[ OK ]
+Tue Dec 18 16:18:21 CET 2012 - GlimpseManager: Creating subscribe object			[ OK ]
+Tue Dec 18 16:18:21 CET 2012 - GlimpseManager: Setting up destination topic 			[ OK ]
+Tue Dec 18 16:18:21 CET 2012 - GlimpseManager: Setting up reading topic 			[ OK ]
+Tue Dec 18 16:18:21 CET 2012 - GlimpseManager: Creating response dispatcher 			[ OK ]
+Tue Dec 18 16:18:21 CET 2012 - GlimpseManager: Starting connection 				[ OK ]
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:18:41 CET 2012 - GlimpseManager: receives <?xml version="1.0" encoding="UTF-8"?><ComplexEventRuleActionList xmlns="http://labse.isti.cnr.it/glimpse/xml/ComplexEventRule" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://labse.isti.cnr.it/glimpse/xml/ComplexEventRule ./ComplexEventRule.xsd">	<Insert RuleType="drools">	<RuleName>MessagesInATimeFrame</RuleName>        <RuleBody>        import it.cnr.isti.labse.glimpse.event.GlimpseBaseEventImpl;        import it.cnr.isti.labse.glimpse.manager.ResponseDispatcher;        import it.cnr.isti.labse.glimpse.utils.NotifierUtils;                declare GlimpseBaseEventImpl	        @role( event )	        @timestamp( timestamp )        end        		rule "Property Model generated from Dependability"		no-loop		salience 999		dialect "java"		when			$total : Number()			from accumulate (				$aEvent : GlimpseBaseEventImpl(this.getConsumed == false,												this.getConnectorID == "DroneConnector",												this.getNetworkedSystemSource == "controllerNetworkedSystem")			over window:time(10s)			from entry-point "DEFAULT",			count($aEvent))		then						ResponseDispatcher.NotifyMeValue(				drools.getRule().getName(),				"Dependability Rule MetaMODEL", "Dependability Rule MMODEL", "Successfully converted and loaded on the Knowledge Base" + $total);		end        </RuleBody>	</Insert></ComplexEventRuleActionList>
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:18:42 CET 2012 - GlimpseManager: Create answerTopic				[ OK ]
+Tue Dec 18 16:18:42 CET 2012 - GlimpseManager: Setup ComplexEventProcessor with Enabler request.[ OK ]
+Tue Dec 18 16:18:42 CET 2012 - GlimpseManager: KnowledgeBase packages loaded: 1
+Tue Dec 18 16:18:42 CET 2012 - GlimpseManager: Communicate the answerTopic to the enabler	[ OK ]
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:18:42 CET 2012 - ResponseDispatcher: ruleMatched: Property Model generated from Dependability - enablerName: Dependability Rule MetaMODEL - evaluationResult: Successfully converted and loaded on the Knowledge Base0Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ResponseDispatcher: ruleMatched: Property Model generated from Dependability - enablerName: Dependability Rule MetaMODEL - evaluationResult: Successfully converted and loaded on the Knowledge Base1Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:10 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:11 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:12 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:13 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:14 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:15 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:16 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:17 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:18 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:19 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ResponseDispatcher: ruleMatched: Property Model generated from Dependability - enablerName: Dependability Rule MetaMODEL - evaluationResult: Successfully converted and loaded on the Knowledge Base231Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:20 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:21 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:22 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:23 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:24 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:25 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:26 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:27 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:28 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:29 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ResponseDispatcher: ruleMatched: Property Model generated from Dependability - enablerName: Dependability Rule MetaMODEL - evaluationResult: Successfully converted and loaded on the Knowledge Base232Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:30 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:31 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:32 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:33 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:34 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,234789374 - Y:0,372648254 - Z:3,70724723 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: position: X:0,236786786 - Y:0,386667 - Z:5,034384745 from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-right from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: Security Refresh from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------
+Tue Dec 18 16:19:35 CET 2012 - ComplexEventProcessorImpl: receives: move-up from: DroneConnector execution: DroneConnector:1
+------------------------------------------------------------------------------------------------------

@@ -1,0 +1,642 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="LoggingWS"
+	targetNamespace="http://service.monitoring.enablers.connect.thalesgroup.com/"
+	xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://service.monitoring.enablers.connect.thalesgroup.com/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<xsd:schema attributeFormDefault="unqualified"
+			elementFormDefault="unqualified"
+			targetNamespace="http://service.monitoring.enablers.connect.thalesgroup.com/"
+			xmlns:tns="http://service.monitoring.enablers.connect.thalesgroup.com/"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:element name="NSLearned" type="tns:NSLearned" />
+			<xsd:complexType name="NSLearned">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="name" type="xsd:string" />
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="NSLearnedResponse" type="tns:NSLearnedResponse" />
+			<xsd:complexType name="NSLearnedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="NSMatch" type="tns:NSMatch" />
+			<xsd:complexType name="NSMatch">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="NS1" type="xsd:string" />
+					<xsd:element minOccurs="0" name="NS2" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="NSMatchResponse" type="tns:NSMatchResponse" />
+			<xsd:complexType name="NSMatchResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="DeploymentEnablerStarted" type="tns:DeploymentEnablerStarted" />
+			<xsd:complexType name="DeploymentEnablerStarted">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="DeploymentEnablerStartedResponse"
+				type="tns:DeploymentEnablerStartedResponse" />
+			<xsd:complexType name="DeploymentEnablerStartedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="SynthesisEnablerStarted" type="tns:SynthesisEnablerStarted" />
+			<xsd:complexType name="SynthesisEnablerStarted">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="SynthesisEnablerStartedResponse" type="tns:SynthesisEnablerStartedResponse" />
+			<xsd:complexType name="SynthesisEnablerStartedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="MonitoringEnablerStarted" type="tns:MonitoringEnablerStarted" />
+			<xsd:complexType name="MonitoringEnablerStarted">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="MonitoringEnablerStartedResponse"
+				type="tns:MonitoringEnablerStartedResponse" />
+			<xsd:complexType name="MonitoringEnablerStartedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="DeploymentOfConnector" type="tns:DeploymentOfConnector" />
+			<xsd:complexType name="DeploymentOfConnector">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="DeploymentOfConnectorResponse" type="tns:DeploymentOfConnectorResponse" />
+			<xsd:complexType name="DeploymentOfConnectorResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="NSDetected" type="tns:NSDetected" />
+			<xsd:complexType name="NSDetected">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="name" type="xsd:string" />
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="NSDetectedResponse" type="tns:NSDetectedResponse" />
+			<xsd:complexType name="NSDetectedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="DeperChecked" type="tns:DeperChecked" />
+			<xsd:complexType name="DeperChecked">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="DeperCheckedResponse" type="tns:DeperCheckedResponse" />
+			<xsd:complexType name="DeperCheckedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="DiscoveryEnablerStarted" type="tns:DiscoveryEnablerStarted" />
+			<xsd:complexType name="DiscoveryEnablerStarted">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="DiscoveryEnablerStartedResponse" type="tns:DiscoveryEnablerStartedResponse" />
+			<xsd:complexType name="DiscoveryEnablerStartedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="SecurityEnablerStarted" type="tns:SecurityEnablerStarted" />
+			<xsd:complexType name="SecurityEnablerStarted">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="SecurityEnablerStartedResponse" type="tns:SecurityEnablerStartedResponse" />
+			<xsd:complexType name="SecurityEnablerStartedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="SecurityChecked" type="tns:SecurityChecked" />
+			<xsd:complexType name="SecurityChecked">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="SecurityCheckedResponse" type="tns:SecurityCheckedResponse" />
+			<xsd:complexType name="SecurityCheckedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="SynthesisEnablerCalled" type="tns:SynthesisEnablerCalled" />
+			<xsd:complexType name="SynthesisEnablerCalled">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="NS1" type="xsd:string" />
+					<xsd:element minOccurs="0" name="NS2" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="SynthesisEnablerCalledResponse" type="tns:SynthesisEnablerCalledResponse" />
+			<xsd:complexType name="SynthesisEnablerCalledResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="SecInstrumentationPerformed" type="tns:SecInstrumentationPerformed" />
+			<xsd:complexType name="SecInstrumentationPerformed">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="SecInstrumentationPerformedResponse"
+				type="tns:SecInstrumentationPerformedResponse" />
+			<xsd:complexType name="SecInstrumentationPerformedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="ConnectorDeployed" type="tns:ConnectorDeployed" />
+			<xsd:complexType name="ConnectorDeployed">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="ConnectorDeployedResponse" type="tns:ConnectorDeployedResponse" />
+			<xsd:complexType name="ConnectorDeployedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="DeperEnablerStarted" type="tns:DeperEnablerStarted" />
+			<xsd:complexType name="DeperEnablerStarted">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="DeperEnablerStartedResponse" type="tns:DeperEnablerStartedResponse" />
+			<xsd:complexType name="DeperEnablerStartedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="SynthesisPossible" type="tns:SynthesisPossible" />
+			<xsd:complexType name="SynthesisPossible">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="NS1" type="xsd:string" />
+					<xsd:element minOccurs="0" name="NS2" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="SynthesisPossibleResponse" type="tns:SynthesisPossibleResponse" />
+			<xsd:complexType name="SynthesisPossibleResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="LearningEnablerStarted" type="tns:LearningEnablerStarted" />
+			<xsd:complexType name="LearningEnablerStarted">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="URL" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="LearningEnablerStartedResponse" type="tns:LearningEnablerStartedResponse" />
+			<xsd:complexType name="LearningEnablerStartedResponse">
+				<xsd:sequence />
+			</xsd:complexType>
+			<xsd:element name="generalLogMessage">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="generalLogMessageResponse">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="SecInstrumentationPerformedResponse">
+		<wsdl:part element="tns:SecInstrumentationPerformedResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DiscoveryEnablerStarted">
+		<wsdl:part element="tns:DiscoveryEnablerStarted" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="NSMatchResponse">
+		<wsdl:part element="tns:NSMatchResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="NSLearnedResponse">
+		<wsdl:part element="tns:NSLearnedResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="NSDetected">
+		<wsdl:part element="tns:NSDetected" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="LearningEnablerStartedResponse">
+		<wsdl:part element="tns:LearningEnablerStartedResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="NSDetectedResponse">
+		<wsdl:part element="tns:NSDetectedResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SynthesisEnablerCalledResponse">
+		<wsdl:part element="tns:SynthesisEnablerCalledResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeploymentEnablerStartedResponse">
+		<wsdl:part element="tns:DeploymentEnablerStartedResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SecurityChecked">
+		<wsdl:part element="tns:SecurityChecked" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeperEnablerStartedResponse">
+		<wsdl:part element="tns:DeperEnablerStartedResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="ConnectorDeployedResponse">
+		<wsdl:part element="tns:ConnectorDeployedResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeploymentOfConnector">
+		<wsdl:part element="tns:DeploymentOfConnector" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="MonitoringEnablerStarted">
+		<wsdl:part element="tns:MonitoringEnablerStarted" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DiscoveryEnablerStartedResponse">
+		<wsdl:part element="tns:DiscoveryEnablerStartedResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SecurityEnablerStartedResponse">
+		<wsdl:part element="tns:SecurityEnablerStartedResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SynthesisEnablerStartedResponse">
+		<wsdl:part element="tns:SynthesisEnablerStartedResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeperEnablerStarted">
+		<wsdl:part element="tns:DeperEnablerStarted" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SynthesisPossibleResponse">
+		<wsdl:part element="tns:SynthesisPossibleResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SecurityCheckedResponse">
+		<wsdl:part element="tns:SecurityCheckedResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeploymentEnablerStarted">
+		<wsdl:part element="tns:DeploymentEnablerStarted" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SecInstrumentationPerformed">
+		<wsdl:part element="tns:SecInstrumentationPerformed" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SecurityEnablerStarted">
+		<wsdl:part element="tns:SecurityEnablerStarted" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SynthesisPossible">
+		<wsdl:part element="tns:SynthesisPossible" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="NSLearned">
+		<wsdl:part element="tns:NSLearned" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeperChecked">
+		<wsdl:part element="tns:DeperChecked" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="NSMatch">
+		<wsdl:part element="tns:NSMatch" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="MonitoringEnablerStartedResponse">
+		<wsdl:part element="tns:MonitoringEnablerStartedResponse"
+			name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SynthesisEnablerStarted">
+		<wsdl:part element="tns:SynthesisEnablerStarted" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeperCheckedResponse">
+		<wsdl:part element="tns:DeperCheckedResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="ConnectorDeployed">
+		<wsdl:part element="tns:ConnectorDeployed" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DeploymentOfConnectorResponse">
+		<wsdl:part element="tns:DeploymentOfConnectorResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="SynthesisEnablerCalled">
+		<wsdl:part element="tns:SynthesisEnablerCalled" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="LearningEnablerStarted">
+		<wsdl:part element="tns:LearningEnablerStarted" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="generalLogMessageRequest">
+		<wsdl:part name="parameters" element="tns:generalLogMessage"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="generalLogMessageResponse">
+		<wsdl:part name="parameters" element="tns:generalLogMessageResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="LoggingWS">
+		<wsdl:operation name="NSLearned">
+			<wsdl:input message="tns:NSLearned" name="NSLearned">
+			</wsdl:input>
+			<wsdl:output message="tns:NSLearnedResponse" name="NSLearnedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="NSMatch">
+			<wsdl:input message="tns:NSMatch" name="NSMatch">
+			</wsdl:input>
+			<wsdl:output message="tns:NSMatchResponse" name="NSMatchResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeploymentEnablerStarted">
+			<wsdl:input message="tns:DeploymentEnablerStarted" name="DeploymentEnablerStarted">
+			</wsdl:input>
+			<wsdl:output message="tns:DeploymentEnablerStartedResponse"
+				name="DeploymentEnablerStartedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SynthesisEnablerStarted">
+			<wsdl:input message="tns:SynthesisEnablerStarted" name="SynthesisEnablerStarted">
+			</wsdl:input>
+			<wsdl:output message="tns:SynthesisEnablerStartedResponse"
+				name="SynthesisEnablerStartedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="MonitoringEnablerStarted">
+			<wsdl:input message="tns:MonitoringEnablerStarted" name="MonitoringEnablerStarted">
+			</wsdl:input>
+			<wsdl:output message="tns:MonitoringEnablerStartedResponse"
+				name="MonitoringEnablerStartedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeploymentOfConnector">
+			<wsdl:input message="tns:DeploymentOfConnector" name="DeploymentOfConnector">
+			</wsdl:input>
+			<wsdl:output message="tns:DeploymentOfConnectorResponse"
+				name="DeploymentOfConnectorResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="NSDetected">
+			<wsdl:input message="tns:NSDetected" name="NSDetected">
+			</wsdl:input>
+			<wsdl:output message="tns:NSDetectedResponse" name="NSDetectedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeperChecked">
+			<wsdl:input message="tns:DeperChecked" name="DeperChecked">
+			</wsdl:input>
+			<wsdl:output message="tns:DeperCheckedResponse" name="DeperCheckedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DiscoveryEnablerStarted">
+			<wsdl:input message="tns:DiscoveryEnablerStarted" name="DiscoveryEnablerStarted">
+			</wsdl:input>
+			<wsdl:output message="tns:DiscoveryEnablerStartedResponse"
+				name="DiscoveryEnablerStartedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SecurityEnablerStarted">
+			<wsdl:input message="tns:SecurityEnablerStarted" name="SecurityEnablerStarted">
+			</wsdl:input>
+			<wsdl:output message="tns:SecurityEnablerStartedResponse"
+				name="SecurityEnablerStartedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SecurityChecked">
+			<wsdl:input message="tns:SecurityChecked" name="SecurityChecked">
+			</wsdl:input>
+			<wsdl:output message="tns:SecurityCheckedResponse" name="SecurityCheckedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SynthesisEnablerCalled">
+			<wsdl:input message="tns:SynthesisEnablerCalled" name="SynthesisEnablerCalled">
+			</wsdl:input>
+			<wsdl:output message="tns:SynthesisEnablerCalledResponse"
+				name="SynthesisEnablerCalledResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SecInstrumentationPerformed">
+			<wsdl:input message="tns:SecInstrumentationPerformed"
+				name="SecInstrumentationPerformed">
+			</wsdl:input>
+			<wsdl:output message="tns:SecInstrumentationPerformedResponse"
+				name="SecInstrumentationPerformedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConnectorDeployed">
+			<wsdl:input message="tns:ConnectorDeployed" name="ConnectorDeployed">
+			</wsdl:input>
+			<wsdl:output message="tns:ConnectorDeployedResponse"
+				name="ConnectorDeployedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeperEnablerStarted">
+			<wsdl:input message="tns:DeperEnablerStarted" name="DeperEnablerStarted">
+			</wsdl:input>
+			<wsdl:output message="tns:DeperEnablerStartedResponse"
+				name="DeperEnablerStartedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SynthesisPossible">
+			<wsdl:input message="tns:SynthesisPossible" name="SynthesisPossible">
+			</wsdl:input>
+			<wsdl:output message="tns:SynthesisPossibleResponse"
+				name="SynthesisPossibleResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LearningEnablerStarted">
+			<wsdl:input message="tns:LearningEnablerStarted" name="LearningEnablerStarted">
+			</wsdl:input>
+			<wsdl:output message="tns:LearningEnablerStartedResponse"
+				name="LearningEnablerStartedResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="generalLogMessage">
+			<wsdl:input message="tns:generalLogMessageRequest"></wsdl:input>
+			<wsdl:output message="tns:generalLogMessageResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="LoggingWSSoapBinding" type="tns:LoggingWS">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="NSLearned">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="NSLearned">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="NSLearnedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="NSMatch">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="NSMatch">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="NSMatchResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeploymentEnablerStarted">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="DeploymentEnablerStarted">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DeploymentEnablerStartedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="MonitoringEnablerStarted">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="MonitoringEnablerStarted">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="MonitoringEnablerStartedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SynthesisEnablerStarted">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="SynthesisEnablerStarted">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="SynthesisEnablerStartedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeploymentOfConnector">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="DeploymentOfConnector">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DeploymentOfConnectorResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="NSDetected">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="NSDetected">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="NSDetectedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeperChecked">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="DeperChecked">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DeperCheckedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DiscoveryEnablerStarted">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="DiscoveryEnablerStarted">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DiscoveryEnablerStartedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SecurityEnablerStarted">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="SecurityEnablerStarted">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="SecurityEnablerStartedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SecurityChecked">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="SecurityChecked">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="SecurityCheckedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SynthesisEnablerCalled">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="SynthesisEnablerCalled">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="SynthesisEnablerCalledResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConnectorDeployed">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="ConnectorDeployed">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ConnectorDeployedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SecInstrumentationPerformed">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="SecInstrumentationPerformed">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="SecInstrumentationPerformedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeperEnablerStarted">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="DeperEnablerStarted">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DeperEnablerStartedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LearningEnablerStarted">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="LearningEnablerStarted">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="LearningEnablerStartedResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SynthesisPossible">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="SynthesisPossible">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="SynthesisPossibleResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="generalLogMessage">
+			<soap:operation
+				soapAction="http://service.monitoring.enablers.connect.thalesgroup.com/generalLogMessage" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="LoggingWS">
+		<wsdl:port binding="tns:LoggingWSSoapBinding" name="LoggingWSPort">
+			<soap:address location="http://localhost:8801/logmonitor" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
